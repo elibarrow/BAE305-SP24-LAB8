@@ -215,24 +215,16 @@ When it came to testing our system we were unable to get it to properly run. We 
 **Part 1**
 
 
-**1. What is the resolution of this sensing system?**
-
-
-
-**2. Try to move your obstacle by a millimeter and determine qualitatively how precise it is.**
-
-
-
-
 **Part 2**
 
+
+**Part 3**
 
 ## Discussion Questions ##
 
-**Part 2**
+**Part 1**
 
-**1. What is the minimum speed number for the motors to move forward?**
-
+**1. What is the minimum speed that will move the complete car?**
 
 
 
