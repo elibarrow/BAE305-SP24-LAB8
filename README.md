@@ -9,10 +9,21 @@ March 7, 2024
 
 
 ### Lab Objectives: ###
-
+To learn to use MIT App Inventor to control our robot using the Arduino cable
+To learn to use  MIT App Inventor to control our robot using a bluetooth device
 
 ## Lab Assignment Specific Items ##
 
+* A Computer running Arduino IDE, and a Browser
+* A smartphone running Android OS with the MIT AI2 Companion app installed
+* SparkFun Inventor's Kit
+  - RedBoard
+  - Ultrasonic Sensor
+  - Two motors
+  - Motor Driver
+  - Battery Pack
+* A cable/adapter to connect smartphone to the RedBoard
+* An HC-05 Bluetooth UART Module
 
 
 
@@ -40,7 +51,145 @@ We then created a new project after signing in and gave it a despcriptive name t
 
 * Figure 2 - App inventor blocks needed to control the serial communications
 
+The next step was to use the block "call serialObject.WriteSerial" and a regular "text" block to send the commands to the RedBoard. This is the way we are replacing the serial command box on the Arduino IDE software with buttons. Each button will send the text that we would noramlly type into the serial command box to control the car.
 
+An image of our user interface and another image with all of the code blocks is shown below.
+
+<p align="center">
+  <img src=  width = 50%> 
+</p> 
+
+* Figure 3 - User interface setup for our app
+
+
+<p align="center">
+  <img src=  width = 50%> 
+</p> 
+
+* Figure 4 - a behind the scenes look at the code blocks behind the user interface
+
+  
+After this was finished we then built our app by selecting the build dropdown bar and then selecting the .apk file type. We had Dr. Jarro download it on his phone since our group only had Apple devices. We then connected the Arduino cable that was connected to our car to Dr. Jarro's phone so he could use the app to control our car.
+
+
+### Part 3 - Wireless Remote ###
+In this section of the lab we focused on trying to connect the phone to a bluetooth device that would control our car. The first step of this part of the lab was to attach the bluetooth HC-05 device into our circuit. 
+The schematic for the addition of the HC-05 is shown below.
+
+<p align="center">
+  <img src=  width = 50%> 
+</p> 
+
+After correctly adding the HC-05 into our circuit we then open Arduino IDE code that had previously been written to control our robot. We then added the code botDirection (char type, 'f' for forward,'b' for backward,'r' for right,'l' for left) and botSpeed(int type). Those variables will recieve the data and save it.
+
+We were then given the following code to insert before the setup function.
+```c++
+
+#include <SoftwareSerial.h>
+
+//Create software serial object to communicate with HC-08
+SoftwareSerial mySerial(3, 2); //HC-05 Tx & Rx is connected to Arduino #3 & #2
+
+const byte numChars = 6;
+char receivedChars[numChars];   // an array to store the received data
+char tempChars[numChars];
+
+char botDirection[1] = {0};
+
+
+int botSpeed = 0;
+int motorSpeed = 0;
+
+boolean newData = false;
+
+```
+We were then given the following code to insert inside the setup function
+
+```c++
+void setup()
+{
+mySerial.begin(9600);
+}
+```
+
+We were then given the following code to insert inside the loop function.
+
+```c++
+
+recWithEndMarker ();
+if (newData == true)
+{
+  strcpy(tempChars, receivedChars);
+  parseData();
+  motorSpeed = botSpeed;
+  newData = false;
+}
+
+```
+
+We then added the following functions
+
+```c++
+
+void recWithEndMarker() {
+
+  static byte ndx = 0;
+  char endMarker = '\n';
+  char rc;
+
+  while (mySerial.available() > 0 && newData == false) {
+
+    rc = mySerial.read();
+
+    if (rc != endMarker){
+
+        receivedChars[ndx] = rc;
+        ndx++;
+        if (ndx>= numChars){
+
+          ndx = numChars -1;
+        }
+
+    }
+    else {
+
+        receivedChars[ndx] = '\0';
+        ndx =0;
+        newData = true;
+
+    }
+
+
+  }
+
+
+}
+
+void parseData() {      // split the data into its parts
+
+    char * strtokIndx; // this is used by strtok() as an index
+
+    strtokIndx = strtok(tempChars," ");      // get the first part - the string
+    strcpy(botDirection, strtokIndx); // copy it to messageFromPC
+ 
+    strtokIndx = strtok(NULL, " "); // this continues where the previous call left off
+    botSpeed = atoi(strtokIndx);     // convert this part to an integer
+}
+
+```
+After copying those lines of code and inserting them in the previously made car driving file, we then opened the App Inventor 2 and saved a copy to our computer. Next from the connectivity section we added the object BluetoothClient which would allow us to send data through Bluetooth. Then from the User Interface we added a ListPicker object that will let us select the bluetooth device we are using. Next under the user interface section we added a Label object that will show us the status of the bluetooth connection. After that we then moved over to the Blocks environment and added the blocks that are shown below.
+
+<p align="center">
+  <img src=  width = 50%> 
+</p> 
+
+After creating those blocks,for each of the buttons replace the "call serialObject.WriteSerial" block with a "call BluetoothClient.SendText" block as shown in the image below. Be sure to include the new line command "/n" becuas this is used by the Arduino code the identify the end of the sent command. 
+
+<p align="center">
+  <img src=  width = 50%> 
+</p> 
+
+When it came to testing our system we were unable to get it to properly run. We had Dr. Jarro take a look at it and we tried to get it to run properly but we never could come up with a solution.
 
 
 ## Results ##
