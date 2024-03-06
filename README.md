@@ -5,6 +5,11 @@ March 7, 2024
 
 ## Summary of Lab ##
 
+There were two main goals of this lab with them being to learn how to use the MIT App Inventor to control our robot using the Arduino cable and to control our robot using a Bluetooth device. Secondary goals for the lab included properly uploading code to the Arduino for MIT App Inventor to utilize and properly implement an HC-05 Bluetooth UART Module into a circuit to allow for connection by Bluetooth. To achieve these goals,  we created a program to allow the user to control the movements of the robot through both wired and Bluetooth connections while using the same robot we created in Lab 6 of BAE 310.
+
+There were multiple goals of this lab, with the main purpose being to learn how to use ultrasonic sensors and learn the behaviors and applications of ultrasonic systems. Secondary goals for the lab included learning to program a motor drive to control the movement of two motors, creating a greater understanding of analog versus digital signals, and understanding and using an H-Bridge Motor Driver in a circuit to effectively brake or reverse the direction of the motors, and lastly to create a program to stop the movement of the motors whenever an object is detected closely to the ultrasonic sensor. To achieve these goals, we created three circuits with the circuit for Part 1 only including an HC-SR04 Ultrasonic Sensor. By using code from the internet and uploading it to the circuit through Arduino IDE, the ultrasonic sensor began to read the distance of objects in its frontal view in centimeters. Through the use of a ruler to verify, we were able to find the resolution of the sensing system as well as how qualitatively precise the sensing system was.
+
+For Part 2 of the lab, the first circuit we created included two motors and an H-Bridge motor driver, By uploading code from the internet and modifying it so that instead of a direction (forward, backward, left, right) and distance traveled, the program changed the direction and speed of the program. By doing this we were able to effectively calibrate the motors and use them. For motors in this code, the minimum speed number for the motors to move forward is one. For the second circuit of Part 2 of the lab, we added the ultrasonic sensor to the first circuit. Modifying the preexisting code, from the first circuit in Part 2, we can program the motors to keep spinning at their designated speed and direction until the ultrasonic sensor senses an object closer than ten centimeters. After doing this, our group had the instructor verify our code for this part worked properly.
 
 
 
@@ -12,7 +17,7 @@ March 7, 2024
 
 1. To learn to use MIT App Inventor to control our robot using the Arduino cable
 
-2. To learn to use  MIT App Inventor to control our robot using a Bluetooth device
+2. To learn to use MIT App Inventor to control our robot using a Bluetooth device
 
 ## Lab Assignment Specific Items ##
 
@@ -32,7 +37,7 @@ March 7, 2024
 
 ## Methods and Testing ##
 ### Part 1 - Assemble and test your robot ###
-For this part of the lab, we began by assembling the robot that we used in the lab last week. You can find the schematics and steps to build this robot in Lab 6 on my GitHub page. We assembled our robot and added the wheels onto the bottom of the main black support board, we were especially careful to make sure the alignment was perfect so the robot would drive straight. After that, we then moved into the Arduino IDE software to run our code from Lab 6 to ensure the robot would move forwards, backward, left and right when given the proper input in the serial communications. After assuring the code was still properly working we assembled the battery pack that is in our SparkFun kit and attached it to the belly of the car, assuring that it would not drag the ground when the car would drive.     
+For this part of the lab, we began by assembling the robot that we used in the lab last week. You can find the schematics and steps to build this robot in Lab 6 on my GitHub page. We assembled our robot and added the wheels onto the bottom of the main black support board, we were especially careful to make sure the alignment was perfect so the robot would drive straight. After that, we then moved into the Arduino IDE software to run our code from Lab 6 to ensure the robot would move forward, backward, left, and right when given the proper input in the serial communications. After assuring the code was still properly working we assembled the battery pack that is in our SparkFun kit and attached it to the belly of the car, assuring that it would not drag the ground when the car would drive.     
 Below is an image of what the car should look like upon assembly. 
 
 <p align="center">
