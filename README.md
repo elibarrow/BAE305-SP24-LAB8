@@ -30,8 +30,6 @@ For Part 1 of the lab, we used the same robot we assembled in Lab 6 and verified
 * An HC-05 Bluetooth UART Module
 
 
-
-
 ## Methods and Testing ##
 ### Part 1 - Assemble and test your robot ###
 For this part of the lab, we began by assembling the robot that we used in the lab last week. You can find the schematics and steps to build this robot in Lab 6 on my GitHub page. We assembled our robot and added the wheels onto the bottom of the main black support board, we were especially careful to make sure the alignment was perfect so the robot would drive straight. After that, we then moved into the Arduino IDE software to run our code from Lab 6 to ensure the robot would move forward, backward, left, and right when given the proper input in the serial communications. After assuring the code was still properly working we assembled the battery pack that is in our SparkFun kit and attached it to the belly of the car, assuring that it would not drag the ground when the car would drive.     
@@ -49,7 +47,7 @@ Below is how our robot car looked once assembled
   <img src= https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Setup%20of%20Car.jpg width = 50%> 
 </p> 
 
-* Figure 2 - In class example of our robot
+* Figure 2 - In-class example of our robot
   
 
 ### Part 2 - Develop the App ###
@@ -61,13 +59,13 @@ We then created a new project after signing in and gave it a descriptive name th
   <img src=  https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Screenshot%202024-03-04%20at%209.18.10%20AM.png width = 50%> 
 </p> 
 
-* Figure 2 - App inventor blocks needed to control the serial communications
+* Figure 3 - App inventor blocks needed to control the serial communications
 
 <p align="center">
   <img src= https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Creating%20Program.jpg width = 50%> 
 </p> 
 
-* Figure 3 - Eli using App Inventor 2 in the lab
+* Figure 4 - Eli using App Inventor 2 in the lab
 
 The next step was to use the block "call serialObject.WriteSerial" and a regular "text" block to send the commands to the RedBoard. This is the way we are replacing the serial command box on the Arduino IDE software with buttons. Each button will send the text that we would normally type into the serial command box to control the car.
 
@@ -77,14 +75,14 @@ An image of our user interface and another image with all of the code blocks is 
   <img src=  https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Screenshot%202024-03-04%20at%202.14.17%20PM.png width = 50%> 
 </p> 
 
-* Figure 3 - User interface setup for our app
+* Figure 5 - User interface setup for our app
 
 
 <p align="center">
   <img src=  https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Screenshot%202024-03-04%20at%202.51.06%20PM.png width = 50%> 
 </p> 
 
-* Figure 4 - A behind-the-scenes look at the code blocks behind the user interface
+* Figure 6 - A behind-the-scenes look at the code blocks behind the user interface
 
   
 After this was finished we then built our app by selecting the build dropdown bar and then selecting the .apk file type. We had Dr. Jarro download it on his phone since our group only had Apple devices. We then connected the Arduino cable that was connected to our car to Dr. Jarro's phone so he could use the app to control our car.
@@ -98,7 +96,7 @@ The schematic for the addition of the HC-05 is shown below.
   <img src= https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Screenshot%202024-03-04%20at%202.18.37%20PM.png  width = 50%> 
 </p> 
 
-* Figure 5 - Schematic for HC-05 (Accessed from Lab 8 Document on Canvas)
+* Figure 7 - Schematic for HC-05 (Accessed from Lab 8 Document on Canvas)
 
 
 After correctly adding the HC-05 into our circuit we then open Arduino IDE code that had previously been written to control our robot. We then added the code botDirection (char type, 'f' for forward,'b' for backward,'r' for right,'l' for left) and botSpeed(int type). Those variables will receive the data and save it.
@@ -214,7 +212,7 @@ After copying those lines of code and inserting them in the previously made car 
   <img src=  https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Screenshot%202024-03-04%20at%202.34.00%20PM.png width = 50%> 
 </p> 
 
-* Figure 6 - Setup blocks for moving into Bluetooth control
+* Figure 8 - Setup blocks for moving into Bluetooth control
 
 After creating those blocks, for each of the buttons replace the "call serialObject.WriteSerial" block with a "call BluetoothClient.SendText" block as shown in the image below. Be sure to include the new line command "/n" because this is used by the Arduino code the identify the end of the sent command. 
 
@@ -222,7 +220,7 @@ After creating those blocks, for each of the buttons replace the "call serialObj
   <img src= https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Screenshot%202024-03-04%20at%202.50.10%20PM.png width = 50%> 
 </p> 
 
-* Figure 7 - Example after converting original blocks to Bluetooth-capable blocks
+* Figure 9 - Example after converting original blocks to Bluetooth-capable blocks
   
 When it came to testing our system we were unable to get it to properly run. We had Dr. Jarro take a look at it and we tried to get it to run properly but we never could come up with a solution.
 
