@@ -9,8 +9,10 @@ March 7, 2024
 
 
 ### Lab Objectives: ###
-To learn to use MIT App Inventor to control our robot using the Arduino cable
-To learn to use  MIT App Inventor to control our robot using a bluetooth device
+
+1. To learn to use MIT App Inventor to control our robot using the Arduino cable
+
+2. To learn to use  MIT App Inventor to control our robot using a Bluetooth device
 
 ## Lab Assignment Specific Items ##
 
