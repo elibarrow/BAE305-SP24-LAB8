@@ -228,7 +228,7 @@ When it came to testing our system we were unable to get it to properly run. We 
 
 **1. What is the minimum speed that will move the complete car?**
 
-
+The minimum speed that will move the complete car is a user input of 40.
 
 
 ## Conclusion of Lab 6 ##
