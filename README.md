@@ -42,6 +42,14 @@ Below is an image of what the car should look like upon assembly.
 </p> 
 
 * Figure 1 - This shows what the fully assembled robot should look like (This image was used from https://www.sparkfun.com/products/15631?gad_source=1&gclid=CjwKCAiA_5WvBhBAEiwAZtCU73IZjn6Ygoc5OvfVjj_N7WFA117QzH89FSEs2ahVhp6rlmaCpV1koxoCShYQAvD_BwE )
+
+Below is how our robot car looked once assembled
+
+<p align="center">
+  <img src= https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Setup%20of%20Car.jpg width = 50%> 
+</p> 
+
+* Figure 2 - In class example of our robot
   
 
 ### Part 2 - Develop the App ###
@@ -54,6 +62,12 @@ We then created a new project after signing in and gave it a descriptive name th
 </p> 
 
 * Figure 2 - App inventor blocks needed to control the serial communications
+
+<p align="center">
+  <img src= https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Creating%20Program.jpg width = 50%> 
+</p> 
+
+* Figure 3 - Eli using App Inventor 2 in the lab
 
 The next step was to use the block "call serialObject.WriteSerial" and a regular "text" block to send the commands to the RedBoard. This is the way we are replacing the serial command box on the Arduino IDE software with buttons. Each button will send the text that we would normally type into the serial command box to control the car.
 
@@ -208,7 +222,7 @@ After creating those blocks, for each of the buttons replace the "call serialObj
   <img src= https://github.com/elibarrow/BAE305-SP24-LAB8/blob/main/Screenshot%202024-03-04%20at%202.50.10%20PM.png width = 50%> 
 </p> 
 
-* Figure 7 - Example after converting original blocks to Bluetooth capable blocks
+* Figure 7 - Example after converting original blocks to Bluetooth-capable blocks
   
 When it came to testing our system we were unable to get it to properly run. We had Dr. Jarro take a look at it and we tried to get it to run properly but we never could come up with a solution.
 
